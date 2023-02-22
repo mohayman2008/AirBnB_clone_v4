@@ -14,8 +14,9 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    overflow-y: visible;
     height: 100%;
-    width: 25%;
+    width: 33%;
     padding-top: 15px;
     margin: 0;
     border-right: 1px solid  #DDDDDD;
@@ -32,10 +33,17 @@
 }
 
 .filters div h4 {
+    width: 100%;
+    height: 32px;
     margin: 0;
     padding: 0 46px;
+    border-bottom: 18px solid rgba(255, 255, 255, 0);
+    padding-bottom: 16px;
     font-weight: 400;
     font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .filters div ul {
@@ -52,10 +60,23 @@
     display: none;
     overflow: auto;
     min-height: 300px;
-    margin-top: 18px;
+    margin-top: 1px;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     padding-bottom: 20px;
+}
+
+.filters div ul.popover::-webkit-scrollbar {
+    width: 10px;
+}
+
+.filters div ul.popover::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.filters div ul.popover::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
 }
 
 .filters div:hover > ul.popover {
@@ -69,19 +90,29 @@
 }
 
 ul.popover li h2 {
+    display: inline;
     margin: 10% 0;
     font-size: 30px;
     font-weight: 750;
 }
 
 .amenities ul.popover {
-    padding: 20px 46px;
+    padding: 20px 16px 20px 46px;
 }
 
 .amenities ul.popover li,
 .locations ul.popover li ul li {
+    width: 100%;
     margin-bottom: 10px;
     font-weight: bold;
+}
+
+.locations ul.popover li ul {
+    margin-top: 10px;
+}
+
+ul.popover > li input[type='checkbox']{
+    margin: 0 10px 0 0;
 }
 
 .search-btn {

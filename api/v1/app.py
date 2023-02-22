@@ -9,7 +9,7 @@ from models import storage
 from api.v1.views import app_views
 
 app = Flask(__name__)
-CORS(app, resources={"/*": {"origins": "0.0.0.0"}})
+CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 app.register_blueprint(app_views)
 
 
@@ -27,5 +27,5 @@ def error_handler_404(error):
 
 if __name__ == "__main__":
     host = getenv('HBNB_API_HOST', '0.0.0.0')
-    port = getenv('HBNB_API_PORT', 5000)
+    port = getenv('HBNB_API_PORT', 5001)
     app.run(host=host, port=port, threaded=True)

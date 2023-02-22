@@ -9,10 +9,13 @@
     <LINK rel="stylesheet" href="/static/styles/3-footer.css?"{{ cache_id }}>
     <LINK rel="stylesheet" href="/static/styles/100-filters.css?"{{ cache_id }}>
     <LINK rel="stylesheet" href="/static/styles/8-places.css?"{{ cache_id }}>
+    <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+    <SCRIPT src="/static/scripts/3-hbnb.js?"{{ cache_id }}></SCRIPT>
   </HEAD>
   <BODY>
     <HEADER>
       <DIV class="logo"></DIV>
+      <DIV id="api_status"></DIV>
     </HEADER>
 
     <DIV class="container">
@@ -39,7 +42,7 @@
           <H4>&nbsp;</H4>
           <UL class="popover">
             {% for amenity in amenities|sort(case_sensitive=True, attribute='name') %}
-              <LI>{{ amenity.name }}</LI>
+              <LI><INPUT type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">{{ amenity.name }}</LI>
             {% endfor %}
           </UL>
         </DIV>
@@ -47,29 +50,6 @@
       </SECTION>
 
       <SECTION class="places">
-        <H1>Places</H1>
-        {% for place in places|sort(case_sensitive=True, attribute='name') %}
-        <ARTICLE>
-          <H2>{{ place.name }}</H2>
-          <DIV class="price_by_night">${{ place.price_by_night }}</DIV>
-          <DIV class="information">
-            <DIV class="max_guest">
-              <DIV class="icon"></DIV>
-              <DIV class="center">{{ place.max_guest }} Guest</DIV>
-            </DIV>
-            <DIV class="number_rooms">
-              <DIV class="icon"></DIV>
-              <DIV class="center">{{ place.number_rooms }} Room</DIV>
-            </DIV>
-            <DIV class="number_bathrooms">
-              <DIV class="icon"></DIV>
-              <DIV class="center">{{ place.number_bathrooms }} Bathroom</DIV>
-            </DIV>
-          </DIV>
-          <DIV class="user"><STRONG>Owner: </STRONG>{{ place.user.first_name }} {{ place.user.last_name }}</DIV>
-          <DIV class="description">{{ place.description|safe }}</DIV>
-        </ARTICLE>
-        {% endfor %}
       </SECTION>
     </DIV>
 
