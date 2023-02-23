@@ -46,7 +46,7 @@ function updateSelectedAmenities (selectedAmenitiesObject) {
 }
 
 function getPlaces () {
-  const data = {amenities: Object.keys(selectedAmenities)};
+  const data = { amenities: Object.keys(selectedAmenities) };
 
   $.ajax({
     url: apiUrl + 'places_search/',
